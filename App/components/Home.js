@@ -1,79 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { TextInput, Button, Text, Title, IconButton } from 'react-native-paper';
+import { Card, Button, Paragraph } from 'react-native-paper';
 
-const RegisterScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
-  const handleRegister = () => {
-    console.log('Register button pressed');
-    // Add registration logic here
-  };
-
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Title style={styles.title}>Register</Title>
-      <TextInput
-        label="Email"
-        value={email}
-        mode="outlined"
-        onChangeText={text => setEmail(text)}
-        style={styles.input}
-      />
-      <TextInput
-        label="Password"
-        value={password}
-        mode="outlined"
-        secureTextEntry
-        onChangeText={text => setPassword(text)}
-        style={styles.input}
-      />
-      <TextInput
-        label="Confirm Password"
-        value={confirmPassword}
-        mode="outlined"
-        secureTextEntry
-        onChangeText={text => setConfirmPassword(text)}
-        style={styles.input}
-      />
-      <Button mode="contained" onPress={handleRegister} style={styles.button}>
-        Register
-      </Button>
+      {/* Example Card 1 */}
+      <Card style={styles.card}>
+        <Card.Cover 
+          source={{ uri: 'https://wallpapers.com/images/featured/kedarnath-4k-9pd6c84fjldyenjg.jpg' }} // Lorem Picsum image
+          style={styles.image}
+          resizeMode="cover"  // Ensures image is not stretched
+        />
+        <Card.Title title="Card Title 1" />
+        <Card.Content>
+          <Paragraph>This is some content inside the card.</Paragraph>
+        </Card.Content>
+        <Card.Actions>
+          <Button onPress={() => console.log('Action 1')}>Action 1</Button>
+          <Button onPress={() => console.log('Action 2')}>Action 2</Button>
+        </Card.Actions>
+      </Card>
 
-      {/* Social Media Registration Section */}
-      <Text style={styles.socialText}>Or Register with</Text>
-      <View style={styles.socialContainer}>
-        <IconButton
-          icon="google"
-          size={40}
-          style={styles.icon}
-          color="#DB4437"  // Google red color
-          onPress={() => console.log('Google Register')}
+      {/* Example Card 2 */}
+      <Card style={styles.card}>
+        <Card.Cover 
+          source={{ uri: 'https://www.chardham-pilgrimage-tour.com/assets/images/badrinath-banner3.webp' }} // Another Lorem Picsum image
+          style={styles.image}
+          resizeMode="cover"  // Ensures image is not stretched
         />
-        <IconButton
-          icon="facebook"
-          size={40}
-          style={styles.icon}
-          color="#3b5998"  // Facebook blue color
-          onPress={() => console.log('Facebook Register')}
-        />
-        <IconButton
-          icon="twitter"
-          size={40}
-          style={styles.icon}
-          color="#1DA1F2"  // Twitter blue color
-          onPress={() => console.log('Twitter Register')}
-        />
-      </View>
-
-      <Text style={styles.text}>
-        Already have an account?{' '}
-        <Text style={styles.link} onPress={() => navigation.navigate('Login')}>
-          Log in
-        </Text>
-      </Text>
+        <Card.Title title="Card Title 2" />
+        <Card.Content>
+          <Paragraph>Here is some more content for the second card.</Paragraph>
+        </Card.Content>
+        <Card.Actions>
+          <Button onPress={() => console.log('Action 1')}>Action 1</Button>
+          <Button onPress={() => console.log('Action 2')}>Action 2</Button>
+        </Card.Actions>
+      </Card>
     </View>
   );
 };
@@ -81,43 +45,15 @@ const RegisterScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     padding: 20,
   },
-  title: {
-    fontSize: 30,
-    textAlign: 'center',
+  card: {
     marginBottom: 20,
   },
-  input: {
-    marginBottom: 15,
-  },
-  button: {
-    marginTop: 10,
-  },
-  text: {
-    marginTop: 15,
-    textAlign: 'center',
-  },
-  link: {
-    color: 'blue',
-  },
-  socialText: {
-    textAlign: 'center',
-    marginTop: 20,
-    marginBottom: 10,
-    fontSize: 16,
-  },
-  socialContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 20,
-  },
-  icon: {
-    backgroundColor: 'white',
-    borderRadius: 50,
-    elevation: 4, // To add shadow effect
+  image: {
+    height: 200, // Set a fixed height to control image size
+    width: '100%',
   },
 });
 
-export default RegisterScreen;
+export default HomeScreen;
