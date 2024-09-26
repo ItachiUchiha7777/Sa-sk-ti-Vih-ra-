@@ -25,22 +25,26 @@ const MainTabNavigator = () => {
           if (route.name === 'Home') {
             iconName = 'home';
           } else if (route.name === 'Culture') {
-            iconName = 'information-circle';
+            iconName = 'search';
           } else if (route.name === 'Book Guide') {
             iconName = 'person';
           } else if (route.name === 'Profile') {
             iconName = 'person-circle';
           }
+          
           return <Ionicons name={iconName} size={size} color={color} />;
         },
+        
       })}
       tabBarOptions={{
+
         activeTintColor: '#6200EE', // Paper default theme color
         inactiveTintColor: 'gray',
       }}
+      
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Culture" component={CultureScreen} />
+      <Tab.Screen name="Culture"  options={{ headerShown: false }}  component={CultureScreen} />
       <Tab.Screen name="Book Guide" component={GuideBookingScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>

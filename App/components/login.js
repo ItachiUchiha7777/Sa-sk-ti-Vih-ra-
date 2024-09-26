@@ -8,6 +8,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     console.log("Login button pressed");
+    navigation.navigate("Main");
 
     // Validate email and password
     if (!email || !password) {

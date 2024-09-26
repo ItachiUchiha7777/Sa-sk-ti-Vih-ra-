@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet,ScrollView } from 'react-native';
 import { Card, Button, Paragraph } from 'react-native-paper';
 
 const HomeScreen = () => {
   return (
+    <ScrollView>
+
     <View style={styles.container}>
       {/* Example Card 1 */}
       <Card style={styles.card}>
@@ -38,7 +40,27 @@ const HomeScreen = () => {
           <Button onPress={() => console.log('Action 2')}>Action 2</Button>
         </Card.Actions>
       </Card>
+
+    {/* Example Card 3 */}
+    <Card style={styles.card}>
+        <Card.Cover 
+          source={{ uri: 'https://cdn.pixabay.com/photo/2020/06/05/21/09/cultural-tourism-5264542_1280.jpg' }} // Lorem Picsum image
+          style={styles.image}
+          resizeMode="cover"  // Ensures image is not stretched
+        />
+        <Card.Title title="Card Title 1" />
+        <Card.Content>
+          <Paragraph>This is some content inside the card.</Paragraph>
+        </Card.Content>
+        <Card.Actions>
+          <Button onPress={() => console.log('Action 1')}>Action 1</Button>
+          <Button onPress={() => console.log('Action 2')}>Action 2</Button>
+        </Card.Actions>
+      </Card>
+
     </View>
+    </ScrollView>
+
   );
 };
 
