@@ -10,9 +10,8 @@ const LoginScreen = ({ navigation }) => {
     console.log("Login button pressed");
     navigation.navigate("Main");
 
-    // Validate email and password
     if (!email || !password) {
-      Alert.alert("Error", "Please enter both email and password.");
+      // Alert.alert("Error", "Please enter both email and password.");
       return;
     }
 
@@ -37,7 +36,6 @@ const LoginScreen = ({ navigation }) => {
       }
     } catch (error) {
       console.log("Error during login:", error);
-      Alert.alert("Error", "An error occurred. Please try again later.");
     }
   };
 
